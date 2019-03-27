@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>This is a question</h1>
-    <QuestionDetail></QuestionDetail>
+    <QuestionDetail question="What's the capital of France?"></QuestionDetail>
     <router-link to="/game">Next question</router-link>
   </div>
 </template>

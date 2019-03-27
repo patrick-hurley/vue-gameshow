@@ -1,6 +1,8 @@
 <template>
   <div>
+    <h1>Bonus Round!</h1>
     <p>{{ game.instruction }}</p>
+    <p>{{ timeRemaining }}</p>
     <div @click="gotIt" class="slippery-dot"></div>
   </div>
 </template>
@@ -9,12 +11,26 @@
 
 export default {
   name: 'GameDetail',
+  data(){
+    return{
+      timeRemaining: 10
+    }
+  },
   props: ['game'],
   methods: {
-    gotIt(){
-      alert('Hurrah. Slippery fucker');
-    }
-  } 
+    gotIt: function(){
+      this.$store.state.score++;
+      this.$emit('gameOver')
+    } 
+  },
+  created(){
+    setInterval(()=>{
+      this.timeRemaining--;
+      if(this.timeRemaining == 0){
+        this.$emit('gameOver') 
+      }
+    }, 1000);
+  }
 }
 
 </script>
@@ -23,8 +39,8 @@ export default {
 <style scoped lang="scss">
   .slippery-dot {
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background: red;
     cursor: pointer;

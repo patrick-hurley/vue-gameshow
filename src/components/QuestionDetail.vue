@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Question number {{ $store.state.currentQuestion }}</h1>
     <p>{{ question.question }}</p>
    
     <div @click="select('a')" class="answer">{{ question.a }}</div>

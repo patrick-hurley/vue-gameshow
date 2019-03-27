@@ -1,8 +1,7 @@
 ✔ Create a array of test questions @done(19-03-27 20:39)
 ✔ Add current question variable @done(19-03-27 20:39)
 ✔ Pass question to component, and show on Question.vue @done(19-03-27 20:39)
-
-
-☐ Make answers selectable
-☐ Add to score if correct
-
+✔ Make answers selectable @done(19-03-27 22:01)
+✔ Add to score if correct @done(19-03-27 22:01)
+✔ Set a timeout on the game @done(19-03-27 22:32)
+✔ Display a countdown clock @done(19-03-27 22:32)

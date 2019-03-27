@@ -21,7 +21,7 @@ const questionList = [{
 },
 { 
   type: 'game',
-  instruction: 'Flip as many switched as you can in 10 seconds'
+  instruction: 'Click the ball before the time runs out!'
 },
 {
   type: 'question',

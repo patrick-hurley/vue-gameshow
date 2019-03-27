@@ -6,8 +6,12 @@
 </template>
 
 <script>
+
     export default {
-        
+        mounted(){
+            this.$store.state.currentQuestion = 1;
+            this.$store.state.score = 0;
+        }
     }
 </script>
 

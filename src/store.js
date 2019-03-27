@@ -4,21 +4,28 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const questionList = [{
-  question: 'Question 1: Blah',
+  type: 'question',
+  question: 'What is the capital of France?',
   a: 'answer1',
   b: 'answer2',
   c: 'answer3',
   correctAnswer: 'a'
 },
 {
-  question: 'Question 2: Blah',
+  type: 'question',
+  question: 'What is the capital of England?',
   a: 'answer1',
   b: 'answer2',
   c: 'answer3',
   correctAnswer: 'b'
 },
+{ 
+  type: 'game',
+  instruction: 'Flip as many switched as you can in 10 seconds'
+},
 {
-  question: 'Question 3: Blah',
+  type: 'question',
+  question: 'What is the capital of Germany?',
   a: 'answer1',
   b: 'answer2',
   c: 'answer3',
@@ -27,14 +34,18 @@ const questionList = [{
 
 export default new Vuex.Store({
   state: {
-    currentQuestion: 0,
-    questions: questionList
-    
+    currentQuestion: 1,
+    questions: questionList,
+    score: 0
   },
   mutations: {
-    
+    INCREASE_QUESTION: function(state) {
+      state.currentQuestion++;
+    }
   },
   actions: {
-    
+    increaseQuestion: ({commit}) => {
+      commit('INCREASE_QUESTION')
+    }
   }
 })

@@ -4,7 +4,9 @@
     <p>{{ score }}</p>
     <QuestionDetail v-if="questionType == 'question'" v-on:selectAnswer="nextQuestion" :question="questions[currentQuestion-1]"></QuestionDetail>
     <GameDetail v-if="questionType == 'game'" :game="questions[currentQuestion-1]"></GameDetail>
+     
     <button @click="nextQuestion">Next Question</button>
+  
   </div>
 </template>
 

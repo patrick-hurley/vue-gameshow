@@ -1,7 +1,8 @@
 <template>
   <div v-if="show">
     <h1>This is question {{ currentQuestion }}</h1>
-    <QuestionDetail v-if="questionType == 'question'" :question="questions[currentQuestion-1]"></QuestionDetail>
+    <p>{{ score }}</p>
+    <QuestionDetail v-if="questionType == 'question'" v-on:selectAnswer="nextQuestion" :question="questions[currentQuestion-1]"></QuestionDetail>
     <GameDetail v-if="questionType == 'game'" :game="questions[currentQuestion-1]"></GameDetail>
     <button @click="nextQuestion">Next Question</button>
   </div>
@@ -42,7 +43,8 @@ export default {
   computed: {
     ...mapState([
        'currentQuestion',
-       'questions'
+       'questions',
+       'score'
     ]),
     questionType(){
       return this.questions[this.currentQuestion-1].type;

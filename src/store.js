@@ -9,7 +9,7 @@ const questionList = [{
   a: 'answer1',
   b: 'answer2',
   c: 'answer3',
-  correctAnswer: 'a'
+  answer: 'a'
 },
 {
   type: 'question',
@@ -17,7 +17,7 @@ const questionList = [{
   a: 'answer1',
   b: 'answer2',
   c: 'answer3',
-  correctAnswer: 'b'
+  answer: 'b'
 },
 { 
   type: 'game',
@@ -29,7 +29,7 @@ const questionList = [{
   a: 'answer1',
   b: 'answer2',
   c: 'answer3',
-  correctAnswer: 'c'
+  answer: 'c'
 }];
 
 export default new Vuex.Store({

@@ -8,7 +8,7 @@
 <script>
 
     export default {
-        mounted(){
+        created(){
             this.$store.state.currentQuestion = 1;
             this.$store.state.score = 0;
         }

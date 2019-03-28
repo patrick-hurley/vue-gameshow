@@ -58,7 +58,11 @@ const questionList = [{
   b: 'answer2',
   c: 'answer3',
   answer: 'c'
-},];
+},
+{ 
+  type: 'game3',
+  instruction: 'Follow the ball'
+}];
 
 export default new Vuex.Store({
   state: {

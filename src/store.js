@@ -61,7 +61,7 @@ const questionList = [{
 },
 { 
   type: 'game3',
-  instruction: 'Follow the ball'
+  instruction: 'Click on the cup covering the ball'
 }];
 
 export default new Vuex.Store({

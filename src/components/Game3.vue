@@ -3,18 +3,27 @@
 
     <h1>Bonus Round!</h1>
 
-    <div class="cup-area">
-        <div class="cup-container" id="cup1">
-            <div class="ball"></div>
-            <img v-on="{ click: complete ? selectCup : null }" class="cup" src="../assets/cup.png" alt="cup"/>
-            
+    <div v-if="complete">
+        <p v-if="correct">You got it!</p>
+        <p v-else>Bad luck, wrong cup</p>
+        <button @click="$emit('gameOver')">Next question</button>
+    </div>
+
+    <div v-else>
+        <div class="cup-area">
+            <div class="cup-container" id="cup1">
+                <div class="ball"></div>
+                <img v-on="{ click: inProgress ? selectCorrectCup : null }" class="cup" src="../assets/cup.png" alt="cup"/>
+                
+            </div>
+            <div class="cup-container" id="cup2">
+                <img v-on="{ click: inProgress ? selectWrongCup : null }" class="cup" src="../assets/cup.png" alt="cup"/>
+            </div>
+            <div class="cup-container" id="cup3">
+                <img v-on="{ click: inProgress ? selectWrongCup : null }" class="cup" src="../assets/cup.png" alt="cup"/>
+            </div>
         </div>
-        <div class="cup-container" id="cup2">
-            <img class="cup" src="../assets/cup.png" alt="cup"/>
-        </div>
-        <div class="cup-container" id="cup3">
-            <img class="cup" src="../assets/cup.png" alt="cup"/>
-        </div>
+        <p class="instructions">{{ game.instruction }}</p>
     </div>
 
 
@@ -27,19 +36,26 @@ export default {
   name: 'Game3',
   data(){
     return{
-        complete: false
+        inProgress: false,
+        complete: false,
+        correct: false
     }
   },
   props: ['game'],
   methods: {
-      selectCup(){
-          alert('you picked it')
+      selectCorrectCup(){
+          this.$store.state.score++;
+          this.correct = true;
+          this.complete = true;
+      },
+      selectWrongCup(){
+          this.complete = true;
       }
   },
   created(){
       setTimeout(()=>{
-          this.complete = true;
-      },5000)
+          this.inProgress = true;
+      },9000)
   }
 }
 
@@ -47,10 +63,21 @@ export default {
 
 
 <style scoped lang="scss">
-  
+
+.instructions {
+    font-size: 30px;
+    text-align: center;
+    opacity: 0;
+    animation-name: fade;
+    animation-duration: 1s;
+    animation-delay: 9s;
+    animation-fill-mode: forwards;
+}
+
 .cup-area {
     width: 1000px;
-    margin: 150px auto;
+    height: 300px;
+    margin: 150px auto 50px;
     position: relative;
 }
 
@@ -59,7 +86,7 @@ export default {
     top: 0;
     width: 300px;
     height: 300px;
-    border: 2px solid;
+    // border: 2px solid;
     display: inline-block;
     margin-right: 25px;
     animation-fill-mode: forwards;
@@ -79,7 +106,7 @@ export default {
     left: 0;
     animation-name: cup1;
     img.cup {
-            animation: correctCup 3s;
+            animation: correctCup 2s;
             animation-delay: 1s;
         }
 }
@@ -104,6 +131,15 @@ export default {
     background: yellow;
     border: 3px solid grey;
     z-index: 0;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes cup1 {

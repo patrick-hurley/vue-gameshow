@@ -2,7 +2,8 @@
   <div v-if="show">
 
     <QuestionDetail v-if="questionType == 'question'" v-on:selectAnswer="nextQuestion" :question="questions[currentQuestion-1]"></QuestionDetail>
-    <GameDetail v-if="questionType == 'game'" v-on:gameOver="nextQuestion" :game="questions[currentQuestion-1]"></GameDetail>
+    <Game1 v-if="questionType == 'game1'" v-on:gameOver="nextQuestion" :game="questions[currentQuestion-1]"></Game1>
+    <Game2 v-if="questionType == 'game2'" v-on:gameOver="nextQuestion" :game="questions[currentQuestion-1]"></Game2>
      
   </div>
 </template>
@@ -11,7 +12,8 @@
 import { mapState, mapActions } from 'vuex'
 
 import QuestionDetail from '@/components/QuestionDetail'
-import GameDetail from '@/components/GameDetail'
+import Game1 from '@/components/Game1'
+import Game2 from '@/components/Game2'
 
 export default {
   name: 'question',
@@ -22,7 +24,8 @@ export default {
   },
   components: {
     QuestionDetail,
-    GameDetail
+    Game1,
+    Game2
   },
   methods: {
     ...mapActions([

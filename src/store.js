@@ -20,7 +20,7 @@ const questionList = [{
   answer: 'b'
 },
 { 
-  type: 'game',
+  type: 'game1',
   instruction: 'Click the ball before the time runs out!'
 },
 {
@@ -30,7 +30,35 @@ const questionList = [{
   b: 'answer2',
   c: 'answer3',
   answer: 'c'
-}];
+},
+{
+  type: 'question',
+  question: 'What is the capital of Germany?',
+  a: 'answer1',
+  b: 'answer2',
+  c: 'answer3',
+  answer: 'c'
+},
+{ 
+  type: 'game2',
+  instruction: 'Press the button to start, and then press again after you think 10 seconds have passed. You need to be within half a second to score a point.'
+},
+{
+  type: 'question',
+  question: 'What is the capital of Germany?',
+  a: 'answer1',
+  b: 'answer2',
+  c: 'answer3',
+  answer: 'c'
+},
+{
+  type: 'question',
+  question: 'What is the capital of Germany?',
+  a: 'answer1',
+  b: 'answer2',
+  c: 'answer3',
+  answer: 'c'
+},];
 
 export default new Vuex.Store({
   state: {

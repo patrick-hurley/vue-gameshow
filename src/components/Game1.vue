@@ -32,7 +32,7 @@ export default {
   props: ['game'],
   methods: {
     gotIt: function(){
-      this.$store.state.score++;
+      this.$store.state.score+=1000;
       this.winner = true;
       this.complete = true;
     } 

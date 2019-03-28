@@ -44,7 +44,7 @@ export default {
   props: ['game'],
   methods: {
       selectCorrectCup(){
-          this.$store.state.score++;
+          this.$store.state.score+=1000;
           this.correct = true;
           this.complete = true;
       },

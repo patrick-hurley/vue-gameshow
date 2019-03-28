@@ -43,7 +43,7 @@ export default {
           this.finalTime = this.timer/1000;
           let timeAway = 10000 - this.timer;
           if(timeAway >= -500 && timeAway <= 500){
-            this.$store.state.score++;
+            this.$store.state.score+=1000;
             this.success = true;
           } 
           this.complete = true;

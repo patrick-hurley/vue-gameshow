@@ -6,8 +6,15 @@
 ✔ Set a timeout on the game @done(19-03-27 22:32)
 ✔ Display a countdown clock @done(19-03-27 22:32)
 
+✔ When the ball is clicked. provide feedback, and show next button @done(19-03-28 10:56)
+☐ Add calculation to increase score if within 0.5 seconds of timer
+☐ Make one more game
+☐ Style app
+
 
 - Game Ideas
 - 1. Timer... click to start, then again when you think 10 seconds has passed
 - 2. Conveyer belt on objects, then present a question about them
 - 3. Grid of blocks, alternatley flashing colours. Then goes white. Click the correct colour.
+- 4. Show a yellow block among others, fade to white, then make them all fly around. Click the right card
+- 5. Ball under a cup, 3 cups. Shuffle them, then pick the cup

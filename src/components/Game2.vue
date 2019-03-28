@@ -1,15 +1,16 @@
 <template>
   <div>
 
-    <h1>Bonus Round 2</h1>
-    <p>{{ game.instruction }}</p>
-    <p v-show="finalTime!=0"></p>
-
+    <h1>Bonus Round!</h1>
+    
     <div v-if="complete">
         <p>{{ finalTime }}</p>
+        <p v-if="success">You did it! 1 point to you.</p>
+        <p v-else>Bad luck... so close.</p>
         <button @click="$emit('gameOver')">Next question</button>
     </div>
     <div v-else>
+        <p>{{ game.instruction }}</p>
         <button v-show="!started" @click="startTimer" class="timer">Start</button>
         <button v-show="started" @click="stopTimer" class="timer">Press again after 10 seconds</button>
     </div>
@@ -25,6 +26,7 @@ export default {
     return{
       started: false,
       complete: false,
+      success: false,
       timer: 0,
       finalTime: 0,
     }
@@ -39,6 +41,11 @@ export default {
       },
       stopTimer(){
           this.finalTime = this.timer/1000;
+          let timeAway = 10000 - this.timer;
+          if(timeAway >= -500 && timeAway <= 500){
+            this.$store.state.score++;
+            this.success = true;
+          } 
           this.complete = true;
       }
   }

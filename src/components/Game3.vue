@@ -70,7 +70,7 @@ export default {
     opacity: 0;
     animation-name: fade;
     animation-duration: 1s;
-    animation-delay: 9s;
+    animation-delay: 5.5s;
     animation-fill-mode: forwards;
 }
 
@@ -86,11 +86,10 @@ export default {
     top: 0;
     width: 300px;
     height: 300px;
-    // border: 2px solid;
     display: inline-block;
     margin-right: 25px;
     animation-fill-mode: forwards;
-    animation-delay: 6s;
+    animation-delay: 3.5s;
     animation-duration: 3s;
 }
 
@@ -188,14 +187,8 @@ export default {
 }
 
 @keyframes correctCup {
-    0% {
-        transform: translateX(0) translateY(0)
-    }
     50% {
         transform: translateX(-200px) translateY(-200px) rotate(-50deg)
-    }
-    100% {
-        transform: translateX(0) translateY(0)
     }
 }
 

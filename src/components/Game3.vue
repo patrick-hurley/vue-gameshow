@@ -1,12 +1,14 @@
 <template>
-  <div>
+  <div class="container">
 
     <h1>Bonus Round!</h1>
 
     <div v-if="complete">
-        <p v-if="correct">You got it!</p>
-        <p v-else>Bad luck, wrong cup</p>
-        <button @click="$emit('gameOver')">Next question</button>
+        <div class="feedback">
+            <p v-if="correct">Correct. £1000 to you.</p>
+            <p v-else>Bad luck. Wrong cup.</p>
+        </div>
+        <button class="continue" @click="$emit('gameOver')">Continue</button>
     </div>
 
     <div v-else>
@@ -55,7 +57,7 @@ export default {
   created(){
       setTimeout(()=>{
           this.inProgress = true;
-      },9000)
+      },8000)
   }
 }
 
@@ -70,14 +72,14 @@ export default {
     opacity: 0;
     animation-name: fade;
     animation-duration: 1s;
-    animation-delay: 5.5s;
+    animation-delay: 8s;
     animation-fill-mode: forwards;
 }
 
 .cup-area {
-    width: 1000px;
+    width: 800px;
     height: 300px;
-    margin: 150px auto 50px;
+    margin: 80px auto 0px;
     position: relative;
 }
 
@@ -90,13 +92,13 @@ export default {
     margin-right: 25px;
     animation-fill-mode: forwards;
     animation-delay: 3.5s;
-    animation-duration: 3s;
+    animation-duration: 5s;
 }
 
 .cup {
     position: absolute;
     left: 50px;
-    width: 200px;
+    width: 150px;
     z-index: 1;
     cursor: pointer;
 }
@@ -111,19 +113,19 @@ export default {
 }
 
 #cup2 {
-    left: 350px;
+    left: 275px;
     animation-name: cup2;
 }
 
 #cup3 {
-    left: 700px;
+    left: 550px;
     animation-name: cup3;
 }
 
 .ball {
     position: absolute;
-    bottom: 10px;
-    left: 100px;
+    bottom: 80px;
+    left: 90px;
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -145,50 +147,95 @@ export default {
     0% {
         left: 0;
     }
-    25%{
-        left: 350px;
+    12%{
+        left: 275px;
     }
-    50%{
-        left: 0;
+    24%{
+        left: 550px;
     }
-    100%{
-        left: 700px;
+    36%{
+        left: 0px;
+    }
+    48% {
+        left: 0px;
+    }
+    60% {
+        left: 275px;
+    }
+    72% {
+        left: 275px;
+    }
+    84% {
+        left: 550px;
+    }
+    100% {
+        left: 0px;
     }
 }
 
 @keyframes cup2 {
     0% {
-        left: 350px;
+        left: 275px;
     }
-    25%{
+    12%{
         left: 0;
     }
-    50%{
-        left: 700px;
+    24%{
+        left: 0;
     }
-    100%{
-        left: 350px;
+    36%{
+        left: 550px;
+    }
+    48% {
+        left: 275px;
+    }
+    60% {
+        left: 0;
+    }
+    72% {
+        left: 550px;
+    }
+    84% {
+        left: 275px;
+    }
+    100% {
+        left: 275px;
     }
 }
 
 @keyframes cup3 {
     0% {
-        left: 700px;
+        left: 550px;
     }
-    25%{
-        left: 700px;
+    12%{
+        left: 550px;
     }
-    50%{
-        left: 350px;
+    24%{
+        left: 275px;
     }
-    100%{
-        left: 0px;
+    36%{
+        left: 275px;
+    }
+    48% {
+        left: 550px;
+    }
+    60% {
+        left: 550px;
+    }
+    72% {
+        left: 0;
+    }
+    84% {
+        left: 0;
+    }
+    100% {
+        left: 550px;
     }
 }
 
 @keyframes correctCup {
     50% {
-        transform: translateX(-200px) translateY(-200px) rotate(-50deg)
+        transform: translateX(-100px) translateY(-100px) rotate(-30deg)
     }
 }
 

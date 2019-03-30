@@ -1,18 +1,20 @@
 <template>
-  <div>
+  <div class="container">
 
     <h1>Bonus Round!</h1>
     
     <div v-if="complete">
-        <p>{{ finalTime }}</p>
-        <p v-if="success">You did it! 1 point to you.</p>
+      <div class="feedback">
+        <p class="final-time">{{ finalTime }}</p>
+        <p v-if="success">Nice. £1000 to you.</p>
         <p v-else>Bad luck... so close.</p>
-        <button @click="$emit('gameOver')">Next question</button>
+      </div>  
+      <button class="continue" @click="$emit('gameOver')">Next question</button>
     </div>
     <div v-else>
-        <p>{{ game.instruction }}</p>
-        <button v-show="!started" @click="startTimer" class="timer">Start</button>
-        <button v-show="started" @click="stopTimer" class="timer">Press again after 10 seconds</button>
+      <p class="instructions">{{ game.instruction }}</p>
+      <button v-show="!started" @click="startTimer" class="timer">Start</button>
+      <button v-show="started" @click="stopTimer" class="timer">Press again after 10 seconds</button>
     </div>
 
   </div>
@@ -57,17 +59,26 @@ export default {
 <style scoped lang="scss">
 
 .timer {
-    width: 300px;
-    padding: 50px;
-    margin: 10px auto;
-    font-size: 25px;
-    background: white;
-    border: 3px solid grey;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 40px auto;
+    font-size: 30px;
+    background: rgba(255, 255, 255, 0.24);
+    color: white;
+    font-weight: 100;
+    border: 3px solid white;
     cursor: pointer;
     &:hover{
         background: teal;
         color: white;
     }
+}
+
+.final-time {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 100px;
 }
   
 

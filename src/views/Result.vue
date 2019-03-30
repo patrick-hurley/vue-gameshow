@@ -1,14 +1,10 @@
 <template>
-    <div>
+    <div class="container">
         <h1>The results are in.</h1>
-        <p>You won £{{ score }}</p>
-        <router-link to="/">Play again</router-link>
+        <p class="results">You won £{{ score }}!</p>
+        <router-link to="/" class="continue">Play again</router-link>
     </div>
 </template>
-
-<style lang="scss" scoped>
-
-</style>
 
 <script>
 
@@ -20,3 +16,11 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    .results {
+        font-size: 50px;
+        color: white;
+        margin-bottom: 70px;
+    }
+</style>

@@ -1,15 +1,18 @@
 <template>
-  <div>
-    <h1>Bonus Round!</h1>
+  <div class="container">
+        
+    <h1 class="title">Bonus Round!</h1>
     
     <div v-if="complete">
-       <p v-if="winner">Good job. 1 point to you.</p>
-       <p v-else>Bad luck, you didn't catch it in time</p>
-       <button @click="$emit('gameOver')">Continue</button>
+      <div class="feedback">
+        <p v-if="winner">Good job. £1000 to you.</p>
+        <p v-else>Bad luck, you didn't catch it in time</p>
+      </div>
+      <button class="continue" @click="$emit('gameOver')">Continue</button>
     </div>
     <div v-else>
-      <p>{{ game.instruction }}</p>
-      <p>{{ timeRemaining }}</p>
+      <p class="instructions">{{ game.instruction }}</p>
+      <p class="clock">{{ timeRemaining }}</p>
       <div @click="gotIt" class="slippery-dot"></div>
     </div>
     
@@ -51,14 +54,41 @@ export default {
 
 
 <style scoped lang="scss">
+
+  .game-container {
+    margin-top: 50px;
+    text-align: center;
+  }
+  .title {
+    padding: 10px 20px;
+    background: rgba(27, 199, 162, 0.932);
+    display: inline-block;
+  }
+  .instructions {
+    color: white;
+    font-size: 25px;
+    margin-top: 0;
+    font-weight: 100;
+  }
+  .clock {
+    margin-top: 0;
+    font-size: 60px;
+    color: white;
+    font-weight: 100;
+  }
   .slippery-dot {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: red;
+    background: yellow;
     cursor: pointer;
     animation: runAway 5s infinite; 
+  }
+  .feedback {
+    color: white;
+    font-size: 25px;
+    margin-bottom: 40px;
   }
 
   @keyframes runAway {

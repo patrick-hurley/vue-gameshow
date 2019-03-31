@@ -1,12 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container full-height">
         
-    <h1 class="title">Bonus Round!</h1>
+    <h1 class="title">Bonus Round</h1>
     
     <div v-if="complete">
       <div class="feedback">
-        <p v-if="winner">Good job. £1000 to you.</p>
-        <p v-else>Bad luck, you didn't catch it in time</p>
+        <p v-if="winner">Got it. £1000 to you.</p>
+        <p v-else>You didn't catch it in time.</p>
       </div>
       <button class="continue" @click="$emit('gameOver')">Continue</button>
     </div>
@@ -41,12 +41,15 @@ export default {
     } 
   },
   created(){
-    setInterval(()=>{
-      this.timeRemaining--;
-      if(this.timeRemaining == 0){
-        this.complete = true; 
-      }
-    }, 1000);
+    // setInterval(()=>{
+    //   this.timeRemaining--;
+    //   if(this.timeRemaining == 0){
+    //     this.complete = true; 
+    //   }
+    // }, 1000);
+  },
+  mounted () {
+    window.scroll(0,0)
   }
 }
 
@@ -55,21 +58,6 @@ export default {
 
 <style scoped lang="scss">
 
-  .game-container {
-    margin-top: 50px;
-    text-align: center;
-  }
-  .title {
-    padding: 10px 20px;
-    background: rgba(27, 199, 162, 0.932);
-    display: inline-block;
-  }
-  .instructions {
-    color: white;
-    font-size: 25px;
-    margin-top: 0;
-    font-weight: 100;
-  }
   .clock {
     margin-top: 0;
     font-size: 60px;
@@ -83,35 +71,34 @@ export default {
     border-radius: 50%;
     background: yellow;
     cursor: pointer;
-    animation: runAway 5s infinite; 
-  }
-  .feedback {
-    color: white;
-    font-size: 25px;
-    margin-bottom: 40px;
+    animation: runAway 4s infinite; 
   }
 
-  @keyframes runAway {
-    0% {
-      top: 100px;
-      left: 100px;
-    }
-    25% {
-      top: 400px;
-      left: 400px;
-    }
-    50% {
-      top: 700px;
-      left: 200px;
-    }
-    75% {
-      top: 300px;
-      left: 900px;
-    }
-    100% {
-      top: 100px;
-      left: 100px;
-    }
+.full-height {
+  height: 100vh !important;
+}
+
+@keyframes runAway {
+  0% {
+    top: 10%;
+    left: 10%;
   }
+  25% {
+    top: 40%;
+    left: 40%;
+  }
+  50% {
+    top: 70%;
+    left: 20%;
+  }
+  75% {
+    top: 30%;
+    left: 90%;
+  }
+  100% {
+    top: 10%;
+    left: 10%;
+  }
+}
 
 </style>

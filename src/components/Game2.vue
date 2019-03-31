@@ -1,15 +1,15 @@
 <template>
   <div class="container">
 
-    <h1>Bonus Round!</h1>
+    <h1>Bonus Round</h1>
     
     <div v-if="complete">
       <div class="feedback">
         <p class="final-time">{{ finalTime }}</p>
         <p v-if="success">Nice. £1000 to you.</p>
-        <p v-else>Bad luck... so close.</p>
+        <p v-else>Nope.</p>
       </div>  
-      <button class="continue" @click="$emit('gameOver')">Next question</button>
+      <button class="continue" @click="$emit('gameOver')">Continue</button>
     </div>
     <div v-else>
       <p class="instructions">{{ game.instruction }}</p>
@@ -35,21 +35,24 @@ export default {
   },
   props: ['game'],
   methods: {
-      startTimer(){
-        this.started = true;
-        setInterval(()=>{
-            this.timer+=10;
-        }, 10);
-      },
-      stopTimer(){
-          this.finalTime = this.timer/1000;
-          let timeAway = 10000 - this.timer;
-          if(timeAway >= -500 && timeAway <= 500){
-            this.$store.state.score+=1000;
-            this.success = true;
-          } 
-          this.complete = true;
-      }
+    startTimer(){
+      this.started = true;
+      setInterval(()=>{
+          this.timer+=10;
+      }, 10);
+    },
+    stopTimer(){
+        this.finalTime = this.timer/1000;
+        let timeAway = 10000 - this.timer;
+        if(timeAway >= -500 && timeAway <= 500){
+          this.$store.state.score+=1000;
+          this.success = true;
+        } 
+        this.complete = true;
+    }
+  },
+  mounted () {
+    window.scroll(0,0)
   }
 }
 
@@ -59,20 +62,21 @@ export default {
 <style scoped lang="scss">
 
 .timer {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin: 40px auto;
-    font-size: 30px;
-    background: rgba(255, 255, 255, 0.24);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 40px auto;
+  font-size: 30px;
+  background: rgba(255, 255, 255, 0.24);
+  color: white;
+  font-weight: 100;
+  border: 3px solid white;
+  outline: none;
+  cursor: pointer;
+  &:hover{
+    background: teal;
     color: white;
-    font-weight: 100;
-    border: 3px solid white;
-    cursor: pointer;
-    &:hover{
-        background: teal;
-        color: white;
-    }
+  }
 }
 
 .final-time {

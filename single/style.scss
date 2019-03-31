@@ -1,0 +1,435 @@
+// App
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-image: linear-gradient(to left top, #051937, #003c5f, #006381, #008b98, #17b4a3);
+  height: 100vh;
+  min-height: 600px;
+  margin-bottom: 70px;
+}
+
+#app {
+  position: relative;
+  margin: 0 auto;
+  @media only screen and (min-width: 700px){
+    width: 800px;
+  }
+}
+.container {
+  margin-top: 50px;
+  text-align: center;
+  h1 {
+    padding: 10px 20px;
+    background: rgba(27, 199, 162, 0.932);
+    display: inline-block;
+  }
+}
+.instructions {
+  color: white;
+  font-size: 25px;
+  margin-top: 30px;
+  font-weight: 100;
+}
+.feedback {
+  color: white;
+  margin-bottom: 40px;
+  p {
+    font-size: 40px;
+  }
+}
+.continue {
+  padding: 10px 40px;
+  background: rgba(255, 255, 255, 0.534);
+  font-size: 30px;
+  border: none;
+  color: black;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    background: rgba(255, 255, 255, 0.384);
+  }
+}
+
+// Intro
+
+.intro {
+  color: white;
+  font-size: 30px;
+  font-weight: 100;
+  margin: 0 auto 40px;
+  padding: 27px;
+  border: 5px dotted white;
+  @media only screen and (min-width: 701px){
+  width: 500px;
+  }
+  @media only screen and (max-width: 700px){
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  p {
+    margin: 0;
+  }
+}
+.logo {
+  width: 150px;
+  margin: 20px auto 0;
+}
+
+
+// QuestionDetail
+
+.question-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 50px 40px;
+  border-radius: 20px;
+  border: 5px solid white;
+  margin-top: 160px;
+  background-color:rgba(255, 255, 255, 0.473);
+}
+
+.score {
+  position: absolute;
+  right: 0px;
+  top: 70px;
+  padding: 10px;
+  width: 150px;
+  font-size: 30px;
+  font-weight: 100;
+  text-align: center;
+  color: yellow;
+  border: 5px solid yellow;
+  @media only screen and (max-width: 700px){
+    position: relative; 
+    margin-bottom: 10px;
+  }
+}
+
+.answer-feedback{
+  position: absolute;
+  left: 0px;
+  top: 70px;
+  width: 300px;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: 100;
+  text-align: center;
+  color: white;
+  border: 5px dotted white;
+  @media only screen and (max-width: 700px){
+    position: relative; 
+    margin-bottom: 10px;
+  }
+}
+
+.question, .answer {
+  background: rgba(17, 88, 105, 0.808);
+  color: white;
+  border-radius: 10px;
+  font-size: 25px;
+  font-weight: 100;
+  
+}
+
+.question {
+  padding: 50px 30px;
+}
+
+.answer{
+  width: 30%;
+  box-sizing: border-box;
+  padding: 30px;
+  display: inline-block;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  @media only screen and (max-width: 700px){
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  &:not(:last-child){
+    margin-right: 28px;
+  }
+  &:hover {
+    background: rgb(40, 145, 139);
+  }
+}
+
+.flashCorrect {
+  animation: flashCorrect .7s;
+  animation-iteration-count: 4;
+}
+
+@keyframes flashCorrect {
+  50% {
+    background-color: rgba(27, 199, 162, 0.932);
+  }
+}
+
+.flashIncorrect {
+  animation: flashIncorrect .7s;
+  animation-iteration-count: 4;
+}
+
+@keyframes flashIncorrect {
+  50% {
+    background-color: orange;
+  }
+}
+
+// Game 1
+.clock {
+  margin-top: 0;
+  font-size: 60px;
+  color: white;
+  font-weight: 100;
+}
+.slippery-dot {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: yellow;
+  cursor: pointer;
+  animation: runAway 5s infinite; 
+}
+
+@keyframes runAway {
+  0% {
+    top: 10%;
+    left: 10%;
+  }
+  25% {
+    top: 40%;
+    left: 40%;
+  }
+  50% {
+    top: 70%;
+    left: 20%;
+  }
+  75% {
+    top: 30%;
+    left: 90%;
+  }
+  100% {
+    top: 10%;
+    left: 10%;
+  }
+}
+
+// Game 2
+.timer {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 40px auto;
+  font-size: 30px;
+  background: rgba(255, 255, 255, 0.24);
+  color: white;
+  font-weight: 100;
+  border: 3px solid white;
+  outline: none;
+  cursor: pointer;
+  &:hover{
+    background: teal;
+    color: white;
+  }
+}
+
+.final-time {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 100px;
+}
+
+// Game 3
+
+.late-instructions {
+  font-size: 35px;
+  text-align: center;
+  opacity: 0;
+  color: white;
+  margin-top: 20px;
+  animation-name: fade;
+  animation-duration: 1s;
+  animation-delay: 8s;
+  animation-fill-mode: forwards;
+}
+
+.cup-area {
+  width: 800px;
+  height: 280px;
+  margin: 80px auto 0px;
+  position: relative;
+}
+
+.cup-container {
+  position: absolute;
+  top: 0;
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  margin-right: 25px;
+  animation-fill-mode: forwards;
+  animation-delay: 3.5s;
+  animation-duration: 5s;
+}
+
+.cup {
+  position: absolute;
+  left: 50px;
+  width: 150px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+#cup1 {
+  left: 0;
+  animation-name: cup1;
+  img.cup {
+    animation: correctCup 2s;
+    animation-delay: 1s;
+  }
+}
+
+#cup2 {
+  left: 275px;
+  animation-name: cup2;
+}
+
+#cup3 {
+  left: 550px;
+  animation-name: cup3;
+}
+
+.ball {
+  position: absolute;
+  bottom: 80px;
+  left: 90px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: yellow;
+  z-index: 0;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes cup1 {
+  0% {
+    left: 0;
+  }
+  12%{
+    left: 275px;
+  }
+  24%{
+    left: 550px;
+  }
+  36%{
+    left: 0px;
+  }
+  48% {
+    left: 0px;
+  }
+  60% {
+    left: 275px;
+  }
+  72% {
+    left: 275px;
+  }
+  84% {
+    left: 550px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes cup2 {
+  0% {
+    left: 275px;
+  }
+  12%{
+    left: 0;
+  }
+  24%{
+    left: 0;
+  }
+  36%{
+    left: 550px;
+  }
+  48% {
+    left: 275px;
+  }
+  60% {
+    left: 0;
+  }
+  72% {
+    left: 550px;
+  }
+  84% {
+    left: 275px;
+  }
+  100% {
+    left: 275px;
+  }
+}
+
+@keyframes cup3 {
+  0% {
+    left: 550px;
+  }
+  12%{
+    left: 550px;
+  }
+  24%{
+    left: 275px;
+  }
+  36%{
+    left: 275px;
+  }
+  48% {
+    left: 550px;
+  }
+  60% {
+    left: 550px;
+  }
+  72% {
+    left: 0;
+  }
+  84% {
+    left: 0;
+  }
+  100% {
+    left: 550px;
+  }
+}
+
+@keyframes correctCup {
+  50% {
+    transform: translateX(-100px) translateY(-100px) rotate(-30deg)
+  }
+}
+
+// Result
+
+.results {
+  font-size: 50px;
+  color: white;
+  margin-bottom: 0;
+}
+.sort-of {
+  font-size: 30px;
+  color: white;
+  margin: 10px 0 70px;
+}

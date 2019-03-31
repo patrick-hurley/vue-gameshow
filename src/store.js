@@ -5,59 +5,59 @@ Vue.use(Vuex)
 
 const questionList = [{
   type: 'question',
-  question: 'What is the capital of France?',
-  a: 'answer1',
-  b: 'answer2',
-  c: 'answer3',
+  question: 'In which country was the Caesar salad invented?',
+  a: 'Mexico',
+  b: 'Spain',
+  c: 'England',
   answer: 'a'
 },
 {
   type: 'question',
-  question: 'What is the capital of England?',
-  a: 'answer1',
-  b: 'answer2',
-  c: 'answer3',
-  answer: 'b'
+  question: 'How long did the 100 years war last?',
+  a: '100 years',
+  b: '113 years',
+  c: '116 years',
+  answer: 'c'
 },
 { 
   type: 'game1',
-  instruction: 'Click the ball before the time runs out!'
+  instruction: 'Click the ball before the time runs out.'
 },
 {
   type: 'question',
-  question: 'What is the capital of Germany?',
-  a: 'answer1',
-  b: 'answer2',
-  c: 'answer3',
-  answer: 'c'
+  question: 'After which animal are the Canary Islands named?',
+  a: 'Rabbits',
+  b: 'Dogs',
+  c: 'Sheep',
+  answer: 'b'
 },
 {
   type: 'question',
-  question: 'What is the capital of Germany?',
-  a: 'answer1',
-  b: 'answer2',
-  c: 'answer3',
-  answer: 'c'
+  question: 'What colour to do you get when you mix red and white?',
+  a: 'Orange',
+  b: 'Pink',
+  c: 'Brown',
+  answer: 'b'
 },
 { 
   type: 'game2',
-  instruction: 'Press the button to start, and then press again after you think 10 seconds have passed. You need to be within half a second to score a point.'
+  instruction: 'Press the button to start, and then press again after you think 10 seconds have passed. You need to be within half a second to win.'
 },
 {
   type: 'question',
-  question: 'What is the capital of Germany?',
-  a: 'answer1',
-  b: 'answer2',
-  c: 'answer3',
-  answer: 'c'
+  question: 'What is the singular of Scampi?',
+  a: 'Scamp',
+  b: 'Scampo',
+  c: 'Scampi',
+  answer: 'b'
 },
 {
   type: 'question',
-  question: 'What is the capital of Germany?',
-  a: 'answer1',
-  b: 'answer2',
-  c: 'answer3',
-  answer: 'c'
+  question: 'What color are aircraft black boxes?',
+  a: 'Orange',
+  b: 'Black',
+  c: 'Yellow',
+  answer: 'a'
 },
 { 
   type: 'game3',

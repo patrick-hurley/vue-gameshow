@@ -1,9 +1,8 @@
 <template>
     <div class="container">
-        <h1>Welcome to the Vue Gameshow</h1>
+        <h1>Vue Gameshow</h1>
         <div class="intro">
-            <p>Welcome to the VueGameshow.</p>
-            <p>The only game show where you don't actually win any money</p>
+            <img class="logo" src="../assets/logo.png" alt="vue-logo"/>
         </div>
         <router-link to="/question" class="continue">Start</router-link>
         
@@ -26,13 +25,27 @@
         color: white;
         font-size: 30px;
         font-weight: 100;
-        width: 500px;
         margin: 0 auto 40px;
         padding: 27px;
         border: 5px dotted white;
-        p {
-            margin-top: 15px;
+        @media only screen and (min-width: 701px){
+            width: 500px;
         }
-    }
+        @media only screen and (max-width: 700px){
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        p {
+            margin: 0;
+        }
+        }
+        p.sub {
+            font-size: 18px;
+            margin-top:10px;
+        }
+        .logo {
+            width: 150px;
+            margin: 0 auto;
+        }
 
 </style>

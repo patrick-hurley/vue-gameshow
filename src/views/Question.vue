@@ -1,7 +1,7 @@
 <template>
   <div v-if="show">
 
-    <QuestionDetail :key="questions[currentQuestion-1]" v-if="questionType == 'question'" v-on:selected="nextQuestion" :question="questions[currentQuestion-1]"></QuestionDetail>
+    <QuestionDetail :key="currentQuestion-1" v-if="questionType == 'question'" v-on:selected="nextQuestion" :question="questions[currentQuestion-1]"></QuestionDetail>
     <Game1 v-if="questionType == 'game1'" v-on:gameOver="nextQuestion" :game="questions[currentQuestion-1]"></Game1>
     <Game2 v-if="questionType == 'game2'" v-on:gameOver="nextQuestion" :game="questions[currentQuestion-1]"></Game2>
     <Game3 v-if="questionType == 'game3'" v-on:gameOver="nextQuestion" :game="questions[currentQuestion-1]"></Game3>

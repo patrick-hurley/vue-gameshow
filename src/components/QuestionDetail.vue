@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="score">£{{ score }}</div>
-    <div class="feedback" v-show="answered">{{ feedback }}</div>
+    <div class="answer-feedback" v-show="answered">{{ feedback }}</div>
     <div class="question-container">  
       <p class="question">{{ question.question }}</p>
       <button @click="select('a')" class="answer" :class="(answerIsA && answered)? classObject:''" :disabled="answered">{{ question.a }}</button>
@@ -66,6 +66,9 @@ export default {
         flashIncorrect: !this.correct
       }
     }
+  },
+  mounted () {
+    window.scroll(0,0)
   }
 }
 
@@ -74,95 +77,113 @@ export default {
 
 <style scoped lang="scss">
 
-h1 {
-  color: white;
-}
-
-.question-container {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 15px 50px 40px;
-  border-radius: 20px;
-  border: 5px solid white;
-  margin-top: 160px;
-  background-color:rgba(255, 255, 255, 0.473);
-}
-
-.score {
-  position: absolute;
-  right: 0px;
-  top: 70px;
-  padding: 10px;
-  width: 150px;
-  font-size: 30px;
-  text-align: center;
-  color: yellow;
-  border: 5px solid yellow;
-}
-
-.feedback{
-  position: absolute;
-  left: 0px;
-  top: 70px;
-  width: 300px;
-  padding: 10px;
-  font-size: 30px;
-  text-align: center;
-  color: white;
-  border: 5px solid white;
-}
-
-.question, .answer {
-  background: rgba(17, 88, 105, 0.808);
-  color: white;
-  border-radius: 10px;
-  font-size: 25px;
-  font-weight: 100;
-  
-}
-
-.question {
-  padding: 50px 30px;
-}
-
-.answer{
-  width: 31%;
-  box-sizing: border-box;
-  padding: 30px;
-  display: inline-block;
-  text-align: left;
-  border: none;
-  cursor: pointer;
-  &:not(:last-child){
-    margin-right: 23px;
+  .question-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 50px 40px;
+    border-radius: 20px;
+    border: 5px solid white;
+    margin-top: 120px;
+    background-color:rgba(255, 255, 255, 0.473);
+    @media only screen and (max-width: 800px){
+      margin-top: 30px;
+      padding: 0px 10px 40px;
+    }
   }
-  &:hover {
-    background: rgb(40, 145, 139);
+
+  .score {
+    position: absolute;
+    right: 0px;
+    top: 20px;
+    padding: 10px;
+    width: 150px;
+    font-size: 30px;
+    font-weight: 100;
+    text-align: center;
+    color: yellow;
+    border: 5px solid yellow;
+    @media only screen and (max-width: 800px){
+      position: relative; 
+      margin-bottom: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
   }
-}
 
-.flashCorrect {
-  animation: flashCorrect .7s;
-  animation-iteration-count: 4;
-}
-
-@keyframes flashCorrect {
-  50% {
-    background-color: green;
+  .answer-feedback{
+    position: absolute;
+    left: 0px;
+    top: 20px;
+    width: 300px;
+    padding: 10px;
+    font-size: 30px;
+    font-weight: 100;
+    text-align: center;
+    color: white;
+    border: 5px dotted white;
+    @media only screen and (max-width: 800px){
+      position: relative; 
+      margin-bottom: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
   }
-}
 
-.flashIncorrect {
-  animation: flashIncorrect .7s;
-  animation-iteration-count: 4;
-}
-
-@keyframes flashIncorrect {
-  50% {
-    background-color: orange;
+  .question, .answer {
+    background: rgba(17, 88, 105, 0.808);
+    color: white;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: 100;
+    
   }
-}
+
+  .question {
+    padding: 50px 30px;
+  }
+
+  .answer{
+    width: 30%;
+    box-sizing: border-box;
+    padding: 30px;
+    display: inline-block;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    @media only screen and (max-width: 800px){
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    &:not(:last-child){
+      margin-right: 28px;
+    }
+    &:hover {
+      background: rgb(40, 145, 139);
+    }
+  }
+
+  .flashCorrect {
+    animation: flashCorrect .7s;
+    animation-iteration-count: 4;
+  }
+
+  @keyframes flashCorrect {
+    50% {
+      background-color: rgba(27, 199, 162, 0.932);
+    }
+  }
+
+  .flashIncorrect {
+    animation: flashIncorrect .7s;
+    animation-iteration-count: 4;
+  }
+
+  @keyframes flashIncorrect {
+    50% {
+      background-color: orange;
+    }
+  }
 
 </style>
